@@ -35,16 +35,6 @@ DIESEL_FLAGS=""
 # Default build flags to pass to `cargo build`.
 RUST_CARGO_BUILD_FLAGS="--release"
 
-# Load our toolchain configuration, if any was specified.
-if [ -f "$BUILD_DIR/rust-toolchain" ]; then
-    VERSION="$(cat "$BUILD_DIR/rust-toolchain")"
-fi
-
-# Load our configuration variables, if any were specified.
-if [ -f "$BUILD_DIR/RustConfig" ]; then
-    . "$BUILD_DIR/RustConfig"
-fi
-
 # Standard paranoia.
 set -eu
 
@@ -63,7 +53,7 @@ you do not define CARGO_URL or CARGO_VERSION in RustConfig.  If you're
 using an older version of Rust, and you need to re-deploy an existing
 application, try setting your buildpack to:
 
-  https://github.com/emk/heroku-buildpack-rust.git#old-rust
+  https://github.com/memothelemo/web-app-heroku.git#old-rust
 EOF
     exit 1
 fi
